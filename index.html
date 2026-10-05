@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ელენესთვის 💗</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 20% 20%, #ffffff 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 30%, #ffffff 0 2px, transparent 3px),
+        linear-gradient(135deg, #ffd6e8, #fff0f7, #ffc1dc);
+
+      background-size:
+        120px 120px,
+        170px 170px,
+        cover;
+
+      color: #8d3b60;
+    }
+
+    /* ================= PAGES ================= */
+
+    .page {
+      position: absolute;
+      inset: 0;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+
+      padding: 25px;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transform: scale(0.94);
+
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        visibility 0.7s;
+    }
+
+    .page.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+
+    .content {
+      width: min(900px, 100%);
+      position: relative;
+      z-index: 5;
+    }
+
+    /* ================= TEXT ================= */
+
+    h1 {
+      margin: 15px 0;
+
+      color: #d64278;
+
+      font-size: clamp(32px, 7vw, 65px);
+
+      text-shadow:
+        2px 3px 0 rgba(255,255,255,0.7);
+    }
+
+    p {
+      font-size: clamp(17px, 3vw, 24px);
+
+      line-height: 1.7;
+
+      color: #914665;
+    }
+
+    .small-text {
+      font-size: 16px;
+      opacity: 0.8;
+    }
+
+    /* ================= BUTTON ================= */
+
+    .cute-button {
+      border: none;
+      outline: none;
+
+      padding: 15px 35px;
+
+      margin-top: 20px;
+
+      border-radius: 999px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ff78a9,
+          #e9467d
+        );
+
+      color: white;
+
+      font-size: 19px;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 8px 20px rgba(210, 55, 110, 0.25),
+        inset 0 2px 0 rgba(255,255,255,0.4);
+
+      transition: 0.3s ease;
+    }
+
+    .cute-button:hover {
+      transform:
+        translateY(-5px)
+        scale(1.05);
+
+      box-shadow:
+        0 13px 28px rgba(210, 55, 110, 0.3),
+        inset 0 2px 0 rgba(255,255,255,0.5);
+    }
+
+    .cute-button:active {
+      transform: scale(0.95);
+    }
+
+    /* ================= HELLO KITTY STYLE ================= */
+
+    .kitty-area {
+      position: relative;
+
+      width: 250px;
+      height: 230px;
+
+      margin:
+        0 auto 15px;
+
+      animation:
+        kittyFloat 3s ease-in-out infinite;
+    }
+
+    .kitty-head {
+      position: absolute;
+
+      width: 175px;
+      height: 145px;
+
+      left: 38px;
+      top: 45px;
+
+      background: white;
+
+      border: 4px solid #333;
+
+      border-radius:
+        48% 48% 45% 45%;
+
+      box-shadow:
+        0 10px 20px rgba(150,60,90,0.15);
+    }
+
+    .kitty-ear-left,
+    .kitty-ear-right {
+      position: absolute;
+
+      width: 62px;
+      height: 65px;
+
+      background: white;
+
+      border: 4px solid #333;
+
+      top: 20px;
+
+      z-index: -1;
+    }
+
+    .kitty-ear-left {
+      left: 35px;
+
+      transform: rotate(-28deg);
+
+      border-radius:
+        15px 45px 10px 45px;
+    }
+
+    .kitty-ear-right {
+      right: 35px;
+
+      transform: rotate(28deg);
+
+      border-radius:
+        45px 15px 45px 10px;
+    }
+
+    .kitty-eye {
+      position: absolute;
+
+      width: 12px;
+      height: 20px;
+
+      background: #222;
+
+      border-radius: 50%;
+
+      top: 76px;
+    }
+
+    .kitty-eye.left {
+      left: 48px;
+    }
+
+    .kitty-eye.right {
+      right: 48px;
+    }
+
+    .kitty-nose {
+      position: absolute;
+
+      width: 15px;
+      height: 11px;
+
+      background: #ffd23f;
+
+      border: 2px solid #333;
+
+      border-radius: 50%;
+
+      left: 78px;
+      top: 99px;
+    }
+
+    .kitty-whisker {
+      position: absolute;
+
+      width: 35px;
+      height: 2px;
+
+      background: #333;
+
+      top: 105px;
+    }
+
+    .whisker1 {
+      left: 8px;
+      transform: rotate(10deg);
+    }
+
+    .whisker2 {
+      left: 8px;
+      top: 116px;
+      transform: rotate(-5deg);
+    }
+
+    .whisker3 {
+      right: 8px;
+      transform: rotate(-10deg);
+    }
+
+    .whisker4 {
+      right: 8px;
+      top: 116px;
+      transform: rotate(5deg);
+    }
+
+    /* Pink bow */
+
+    .bow {
+      position: absolute;
+
+      top: 23px;
+      right: 25px;
+
+      width: 55px;
+      height: 42px;
+
+      z-index: 10;
+    }
+
+    .bow-left,
+    .bow-right {
+      position: absolute;
+
+      width: 30px;
+      height: 38px;
+
+      background: #ff5d98;
+
+      border: 3px solid #c92d68;
+    }
+
+    .bow-left {
+      left: 0;
+
+      border-radius:
+        50% 15% 50% 50%;
+
+      transform: rotate(-15deg);
+    }
+
+    .bow-right {
+      right: 0;
+
+      border-radius:
+        15% 50% 50% 50%;
+
+      transform: rotate(15deg);
+    }
+
+    .bow-center {
+      position: absolute;
+
+      left: 20px;
+      top: 13px;
+
+      width: 18px;
+      height: 18px;
+
+      background: #ff4f91;
+
+      border: 3px solid #c92d68;
+
+      border-radius: 50%;
+
+      z-index: 2;
+    }
+
+    @keyframes kittyFloat {
+      0%, 100% {
+        transform:
+          translateY(0)
+          rotate(-1deg);
+      }
+
+      50% {
+        transform:
+          translateY(-10px)
+          rotate(1deg);
+      }
+    }
+
+    /* ================= FLOWERS ================= */
+
+    .flower {
+      position: absolute;
+
+      font-size: 42px;
+
+      animation:
+        flowerFloat 4s ease-in-out infinite;
+
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .f1 {
+      left: 5%;
+      top: 12%;
+    }
+
+    .f2 {
+      right: 7%;
+      top: 15%;
+
+      animation-delay: 1s;
+    }
+
+    .f3 {
+      left: 10%;
+      bottom: 13%;
+
+      animation-delay: 1.5s;
+    }
+
+    .f4 {
+      right: 10%;
+      bottom: 10%;
+
+      animation-delay: 2s;
+    }
+
+    .f5 {
+      left: 25%;
+      top: 8%;
+
+      font-size: 30px;
+
+      animation-delay: 0.7s;
+    }
+
+    .f6 {
+      right: 25%;
+      bottom: 8%;
+
+      font-size: 30px;
+
+      animation-delay: 2.5s;
+    }
+
+    @keyframes flowerFloat {
+      0%, 100% {
+        transform:
+          translateY(0)
+          rotate(-5deg);
+      }
+
+      50% {
+        transform:
+          translateY(-15px)
+          rotate(7deg);
+      }
+    }
+
+    /* ================= HEARTS ================= */
+
+    .heart {
+      position: fixed;
+
+      bottom: -40px;
+
+      pointer-events: none;
+
+      z-index: 20;
+
+      animation:
+        heartRise linear forwards;
+    }
+
+    @keyframes heartRise {
+      0% {
+        transform:
+          translateY(0)
+          rotate(0deg);
+
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 1;
+      }
+
+      100% {
+        transform:
+          translateY(-115vh)
+          rotate(360deg);
+
+        opacity: 0;
+      }
+    }
+
+    /* ================= CAT SCENE ================= */
+
+    .cat-scene {
+      width: min(850px, 95vw);
+      height: 330px;
+
+      margin:
+        10px auto 20px;
+
+      position: relative;
+
+      display: flex;
+
+      justify-content: center;
+      align-items: flex-end;
+
+      gap: 80px;
+    }
+
+    .cat {
+      width: 160px;
+      height: 210px;
+
+      position: relative;
+    }
+
+    .cat-body {
+      position: absolute;
+
+      bottom: 0;
+      left: 25px;
+
+      width: 110px;
+      height: 130px;
+
+      border-radius:
+        55px 55px 35px 35px;
+
+      box-shadow:
+        0 10px 20px rgba(90,30,50,0.15);
+    }
+
+    .cat-head {
+      position: absolute;
+
+      top: 5px;
+      left: 10px;
+
+      width: 140px;
+      height: 115px;
+
+      border-radius: 50%;
+
+      z-index: 3;
+    }
+
+    .cat-ear {
+      position: absolute;
+
+      width: 48px;
+      height: 55px;
+
+      top: -25px;
+
+      z-index: -1;
+    }
+
+    .cat-ear.left {
+      left: 8px;
+
+      transform: rotate(-25deg);
+
+      border-radius:
+        10px 40px 5px 40px;
+    }
+
+    .cat-ear.right {
+      right: 8px;
+
+      transform: rotate(25deg);
+
+      border-radius:
+        40px 10px 40px 5px;
+    }
+
+    .cat-eye {
+      position: absolute;
+
+      width: 10px;
+      height: 17px;
+
+      background: #222;
+
+      border-radius: 50%;
+
+      top: 50px;
+    }
+
+    .cat-eye.left {
+      left: 40px;
+    }
+
+    .cat-eye.right {
+      right: 40px;
+    }
+
+    .cat-nose {
+      position: absolute;
+
+      top: 72px;
+      left: 64px;
+
+      width: 13px;
+      height: 10px;
+
+      background: #f29ab8;
+
+      border-radius: 50%;
+    }
+
+    .cat-mouth {
+      position: absolute;
+
+      top: 80px;
+      left: 61px;
+
+      width: 20px;
+      height: 10px;
+
+      border-bottom:
+        2px solid #333;
+
+      border-radius: 50%;
+    }
+
+    /* WHITE CAT */
+
+    .white-cat .cat-body,
+    .white-cat .cat-head,
+    .white-cat .cat-ear {
+      background: #fff;
+
+      border: 3px solid #555;
+    }
+
+    .white-cat {
+      animation:
+        whiteCatMove 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes whiteCatMove {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(10px);
+      }
+    }
+
+    /* BLACK CAT */
+
+    .black-cat .cat-body,
+    .black-cat .cat-head,
+    .black-cat .cat-ear {
+      background: #29252a;
+
+      border: 3px solid #171519;
+    }
+
+    .black-cat .cat-eye {
+      background: #ffdf64;
+    }
+
+    .black-cat {
+      animation:
+        blackCatMove 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes blackCatMove {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-7px);
+      }
+    }
+
+    /* TAILS */
+
+    .tail {
+      position: absolute;
+
+      width: 80px;
+      height: 70px;
+
+      border: 10px solid;
+
+      border-radius: 50%;
+
+      bottom: 20px;
+
+      z-index: -1;
+    }
+
+    .white-cat .tail {
+      border-color: #555;
+
+      right: -35px;
+
+      border-left-color: transparent;
+
+      transform: rotate(-20deg);
+    }
+
+    .black-cat .tail {
+      border-color: #171519;
+
+      left: -35px;
+
+      border-right-color: transparent;
+
+      transform: rotate(20deg);
+    }
+
+    /* FLOWER GIVEN FROM WHITE CAT */
+
+    .gift-flower {
+      position: absolute;
+
+      z-index: 10;
+
+      left: 125px;
+      top: 105px;
+
+      font-size: 55px;
+
+      animation:
+        flowerOffer 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes flowerOffer {
+      from {
+        transform:
+          rotate(-10deg)
+          translateY(0);
+      }
+
+      to {
+        transform:
+          rotate(10deg)
+          translateY(-8px);
+      }
+    }
+
+    /* ================= TEDDY BEARS ================= */
+
+    .teddy {
+      position: absolute;
+
+      font-size: 75px;
+
+      z-index: 2;
+
+      filter:
+        drop-shadow(
+          0 5px 4px rgba(130,50,80,0.12)
+        );
+
+      animation:
+        teddyFloat 3s ease-in-out infinite;
+    }
+
+    .teddy-left {
+      left: 3%;
+      bottom: 8%;
+      animation-delay: 0s;
+    }
+
+    .teddy-right {
+      right: 3%;
+      bottom: 8%;
+      animation-delay: 1s;
+    }
+
+    .teddy-top-left {
+      left: 7%;
+      top: 8%;
+      font-size: 50px;
+      animation-delay: 1.5s;
+    }
+
+    .teddy-top-right {
+      right: 7%;
+      top: 8%;
+      font-size: 50px;
+      animation-delay: 2s;
+    }
+
+    @keyframes teddyFloat {
+      0%, 100% {
+        transform:
+          translateY(0)
+          rotate(-3deg);
+      }
+
+      50% {
+        transform:
+          translateY(-10px)
+          rotate(3deg);
+      }
+    }
+
+    /* ================= FINAL CARD ================= */
+
+    .final-card {
+      width: min(700px, 95vw);
+
+      padding:
+        40px 30px;
+
+      background:
+        rgba(255,255,255,0.75);
+
+      border:
+        3px solid #ffacd0;
+
+      border-radius: 35px;
+
+      box-shadow:
+        0 20px 60px
+        rgba(150,50,90,0.18),
+
+        inset 0 0 30px
+        rgba(255,255,255,0.5);
+
+      backdrop-filter: blur(8px);
+
+      position: relative;
+      z-index: 5;
+    }
+
+    .final-title {
+      font-size:
+        clamp(32px, 7vw, 58px);
+
+      color: #d43876;
+
+      margin-bottom: 20px;
+    }
+
+    .final-message {
+      font-size:
+        clamp(18px, 3.5vw, 25px);
+
+      line-height: 1.8;
+
+      color: #914665;
+    }
+
+    .signature {
+      margin-top: 25px;
+
+      font-size:
+        clamp(25px, 5vw, 40px);
+
+      font-weight: bold;
+
+      color: #d43876;
+    }
+
+    .final-flowers {
+      font-size: 45px;
+
+      margin-top: 20px;
+
+      animation:
+        flowerFloat 3s ease-in-out infinite;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 650px) {
+
+      .cat-scene {
+        height: 270px;
+
+        gap: 20px;
+
+        transform: scale(0.78);
+      }
+
+      .gift-flower {
+        left: 105px;
+      }
+
+      .flower {
+        font-size: 32px;
+      }
+
+      .teddy {
+        font-size: 48px;
+      }
+
+      .teddy-top-left,
+      .teddy-top-right {
+        font-size: 35px;
+      }
+
+      h1 {
+        line-height: 1.2;
+      }
+
+      p {
+        line-height: 1.5;
+      }
+
+      .final-card {
+        padding:
+          30px 20px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+  <!-- =====================================================
+       PAGE 1
+       ===================================================== -->
+
+  <section class="page active" id="page1">
+
+    <div class="flower f1">🌸</div>
+    <div class="flower f2">🌷</div>
+    <div class="flower f3">🌹</div>
+    <div class="flower f4">🌸</div>
+
+    <div class="content">
+
+      <!-- Hello Kitty style character -->
+
+      <div class="kitty-area">
+
+        <div class="kitty-ear-left"></div>
+        <div class="kitty-ear-right"></div>
+
+        <div class="kitty-head">
+
+          <div class="kitty-eye left"></div>
+          <div class="kitty-eye right"></div>
+
+          <div class="kitty-nose"></div>
+
+          <div class="kitty-whisker whisker1"></div>
+          <div class="kitty-whisker whisker2"></div>
+          <div class="kitty-whisker whisker3"></div>
+          <div class="kitty-whisker whisker4"></div>
+
+        </div>
+
+        <div class="bow">
+          <div class="bow-left"></div>
+          <div class="bow-right"></div>
+          <div class="bow-center"></div>
+        </div>
+
+      </div>
+
+
+      <h1>
+        გამარჯობა ელენე &lt;3
+      </h1>
+
+
+      <p>
+        🌸 პატარა რაღაც მოვიფიქრე შენთვის...
+      </p>
+
+
+      <button
+        class="cute-button"
+        onclick="nextPage(2)"
+      >
+        გამარჯობა 💗
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       PAGE 2
+       ===================================================== -->
+
+  <section class="page" id="page2">
+
+    <div class="flower f1">🌷</div>
+    <div class="flower f2">🌸</div>
+    <div class="flower f3">🌺</div>
+    <div class="flower f4">🌹</div>
+
+    <div class="content">
+
+      <div style="font-size:75px;">
+        🧸💗
+      </div>
+
+
+      <h1>
+        ერთი პატარა რამ შენთვის...
+      </h1>
+
+
+      <p>
+        იმედია, ეს პატარა საიტი<br>
+        ოდნავ უფრო კარგ ხასიათზე გაგხდის. 🥹💗
+      </p>
+
+
+      <button
+        class="cute-button"
+        onclick="nextPage(3)"
+      >
+        ვნახოთ... 🌷
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       PAGE 3
+       CAT SCENE
+       ===================================================== -->
+
+  <section class="page" id="page3">
+
+    <div class="flower f1">🌸</div>
+    <div class="flower f2">🌷</div>
+    <div class="flower f3">🌹</div>
+    <div class="flower f4">🌺</div>
+
+    <div class="content">
+
+      <div style="font-size:65px;">
+        🎀🌸🌷🌹🌸
+      </div>
+
+
+      <h1>
+        პატარა ყვავილები შენთვის 🌸
+      </h1>
+
+
+      <p>
+        ყველა ეს პატარა ყვავილი<br>
+        უბრალოდ იმისთვისაა, რომ ცოტა გაგეღიმოს. 💗
+      </p>
+
+
+      <!-- TWO CATS -->
+
+      <div class="cat-scene">
+
+
+        <!-- WHITE CAT -->
+
+        <div class="cat white-cat">
+
+          <div class="tail"></div>
+
+          <div class="cat-body"></div>
+
+          <div class="cat-head">
+
+            <div class="cat-ear left"></div>
+            <div class="cat-ear right"></div>
+
+            <div class="cat-eye left"></div>
+            <div class="cat-eye right"></div>
+
+            <div class="cat-nose"></div>
+
+            <div class="cat-mouth"></div>
+
+          </div>
+
+        </div>
+
+
+        <!-- FLOWER BETWEEN CATS -->
+
+        <div class="gift-flower">
+          🌷
+        </div>
+
+
+        <!-- BLACK CAT -->
+
+        <div class="cat black-cat">
+
+          <div class="tail"></div>
+
+          <div class="cat-body"></div>
+
+          <div class="cat-head">
+
+            <div class="cat-ear left"></div>
+            <div class="cat-ear right"></div>
+
+            <div class="cat-eye left"></div>
+            <div class="cat-eye right"></div>
+
+            <div class="cat-nose"></div>
+
+            <div class="cat-mouth"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <p>
+        🐱🤍 ➡️ 🌷 ➡️ 🐈‍⬛
+      </p>
+
+
+      <p class="small-text">
+        ერთი კატა მეორეს ყვავილს აძლევს... 🌷
+      </p>
+
+
+      <button
+        class="cute-button"
+        onclick="nextPage(4)"
+      >
+        კიდევ ერთი რამ 💕
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       PAGE 4
+       FINAL MESSAGE
+       ===================================================== -->
+
+  <section class="page" id="page4">
+
+
+    <!-- Teddy bear decorations -->
+
+    <div class="teddy teddy-left">
+      🧸
+    </div>
+
+    <div class="teddy teddy-right">
+      🧸
+    </div>
+
+    <div class="teddy teddy-top-left">
+      🧸
+    </div>
+
+    <div class="teddy teddy-top-right">
+      🧸
+    </div>
+
+
+    <!-- Flowers -->
+
+    <div class="flower f1">🌸</div>
+    <div class="flower f2">🌷</div>
+    <div class="flower f3">🌹</div>
+    <div class="flower f4">🌺</div>
+
+
+    <div class="content">
+
+
+      <div class="final-card">
+
+
+        <div style="font-size:65px;">
+          🌸🌷🌹
+        </div>
+
+
+        <div class="final-title">
+          ეს ყვავილები შენთვისაა 🌷
+        </div>
+
+
+        <div class="final-message">
+
+          და იმედია, ოდნავ მაინც<br>
+
+          <strong>
+            გამოგიკეთებს ხასიათს. 💗
+          </strong>
+
+          <br><br>
+
+          უბრალოდ მინდოდა<br>
+
+          პატარა რაღაც გამეკეთებინა<br>
+
+          შენთვის. 🥹🌸
+
+        </div>
+
+
+        <div class="final-flowers">
+          🌸 🌷 🌹 🌸 🌷
+        </div>
+
+
+        <div class="signature">
+          ეს ლუკასგან ❤️
+        </div>
+
+
+        <div style="font-size:55px; margin-top:15px;">
+          🧸 💗 🧸
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script>
+
+    /* ================= PAGE CHANGE ================= */
+
+    function nextPage(number) {
+
+      const pages =
+        document.querySelectorAll(".page");
+
+
+      pages.forEach(page => {
+
+        page.classList.remove("active");
+
+      });
+
+
+      setTimeout(() => {
+
+        const next =
+          document.getElementById(
+            "page" + number
+          );
+
+
+        if (next) {
+
+          next.classList.add("active");
+
+        }
+
+      }, 150);
+
+
+      createHearts(12);
+
+    }
+
+
+    /* ================= FLOATING HEARTS ================= */
+
+    function createHearts(amount = 8) {
+
+      const symbols = [
+
+        "💗",
+        "💕",
+        "💖",
+        "🌸",
+        "🌷",
+        "💞"
+
+      ];
+
+
+      for (
+        let i = 0;
+        i < amount;
+        i++
+      ) {
+
+
+        const heart =
+          document.createElement("div");
+
+
+        heart.className = "heart";
+
+
+        heart.innerHTML =
+          symbols[
+            Math.floor(
+              Math.random() *
+              symbols.length
+            )
+          ];
+
+
+        heart.style.left =
+          Math.random() * 100 + "vw";
+
+
+        heart.style.fontSize =
+          (
+            16 +
+            Math.random() * 25
+          ) + "px";
+
+
+        heart.style.animationDuration =
+          (
+            5 +
+            Math.random() * 5
+          ) + "s";
+
+
+        document.body.appendChild(
+          heart
+        );
+
+
+        setTimeout(() => {
+
+          heart.remove();
+
+        }, 10000);
+
+      }
+
+    }
+
+
+    /* ================= PERIODIC HEARTS ================= */
+
+    setInterval(() => {
+
+      const activePage =
+        document.querySelector(
+          ".page.active"
+        );
+
+
+      if (activePage) {
+
+        createHearts(3);
+
+      }
+
+    }, 4500);
+
+
+    /* ================= START ================= */
+
+    window.addEventListener(
+      "load",
+      () => {
+
+        setTimeout(() => {
+
+          createHearts(6);
+
+        }, 800);
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
